@@ -50,10 +50,11 @@
         <div class="col-12">
             {% for post in posts %}
                 <div class="card">
+                    <img class="card-img-top" src="../{{ post.thumbnail }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
                         <p class="card-text">{{ post.body }}</p>
-                    <a href="#" class="btn btn-primary"> Read More </a>
+                    <a href="{% url 'read_more_url' post.id %}" class="btn btn-primary"> Read More </a>
                     </div>
                 </div>
             {% endfor %}
