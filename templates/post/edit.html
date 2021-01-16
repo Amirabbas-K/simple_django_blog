@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Edit post </title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        Title:<br>
+        <input name="title" type="text" value="{{ post.title }}">
+        Body:<br>
+        <input name="body" type="text" value="{{ post.body }}">
+        Author:<br>
+        <input name="author" type="text" value="{{ post.author }}">
+        Tag:<br>
+        <input name="tag" type="text" value="{{ post.tag }}">
+        <input type="submit" value="send">
+    </form>
+</body>
+</html>

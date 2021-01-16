@@ -1,0 +1,5 @@
+- [ ] add some post 
+- [ ] login and sign up 
+- [ ] edit post 
+- [ ] is_authenticated
+- [ ] why that thumbnail did not upload
