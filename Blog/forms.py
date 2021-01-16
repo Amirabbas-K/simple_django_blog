@@ -5,4 +5,4 @@ class Post_frm(ModelForm):
     class Meta():
         model = Posts
         # fields = "__all__"
-        fields = ['title' , 'body' , 'author' , 'tag' ]
+        fields = ['title' , 'body' , 'author' , 'tag'  , 'thumbnail']

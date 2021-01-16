@@ -5,7 +5,7 @@
     <title> Adding a post </title>
 </head>
 <body>
-    <form action="{% url 'add_posts_url' %}" method="POST">
+    <form enctype="multipart/form-data" action="{% url 'add_posts_url' %}" method="POST">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="send">

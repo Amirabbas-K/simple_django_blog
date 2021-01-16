@@ -29,4 +29,6 @@ def main_page (request):
     data = {"posts" : get_db}
     return render(request , "main_page.html" , data)
 def read_more (request , id):
-    pass
+    the_post = Posts.objects.get(id=id)
+    data = {'post': the_post}
+    return render(request, './post/read_more.html', data)
