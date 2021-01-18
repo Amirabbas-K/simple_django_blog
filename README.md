@@ -1,4 +1,4 @@
-- [ ] add some post 
+- [x] add some post 
 - [ ] login and sign up 
 - [x] edit post 
 - [x] Make an API for collecting posts 
