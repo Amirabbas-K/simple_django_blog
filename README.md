@@ -1,6 +1,4 @@
-- [x] add some post 
+- [ ] finish front end
 - [ ] login and sign up 
-- [x] edit post 
-- [x] Make an API for collecting posts 
-- [x] is_authenticated
-- [x] why that thumbnail did not upload
+- [ ] add jwt to API
+
