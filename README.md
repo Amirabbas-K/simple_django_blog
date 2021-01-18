@@ -1,6 +1,6 @@
-- [ ] add some post 
+- [x] add some post 
 - [ ] login and sign up 
 - [x] edit post 
-- [ ] Make an API for collecting posts 
+- [x] Make an API for collecting posts 
 - [x] is_authenticated
 - [x] why that thumbnail did not upload
