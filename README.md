@@ -1,4 +1,6 @@
 - [ ] finish front end
 - [x] login and sign up 
 - [ ] add jwt to API
-
+- [ ] permissons and acces setting 
+- [ ] post view counter 
+- [ ] blog reader for Desktop and mobile 
