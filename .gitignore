@@ -7,5 +7,6 @@ API/migrations/__init__.py
 API/migrations/__pycache__
 */*/__init__.py
 */__init__.py
+curl_code.txt
 
 
