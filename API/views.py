@@ -21,4 +21,17 @@ def post_finder (request , id ): # find a special post
     if request.method == 'GET':
         serializer = post_serializer(post)
         return Response(serializer.data)
+@api_view(["PUT"])
+def update_post(request , id ):
+    try:
+        post = Posts.objects.get (id = id )
+    except post.DoesNotExist :
+        return HttpResponse(status=404)
+
+    if request.method == "PUT":
+        serializer = post_serializer(post , data=request.data )
+        if serializer.is_valid() :
+            serializer.save()
+            return Response(data=request.data)
+        return HttpResponse(status = 400 )
 
