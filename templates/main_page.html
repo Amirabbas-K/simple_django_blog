@@ -57,9 +57,11 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
                         <p class="card-text card_text">{{ post.body }}</p>
-                    <a href="{% url 'read_more_url' post.id %}" class="btn btn-danger"> Read More </a>
-                    <a href="{% url 'delete_post_url' post.id %}" class="btn btn-info"> Delete </a>
-                    <a href="{% url 'edit_post_url' post.id %}" class="btn btn-success"> Edit </a>
+                        {% if user.is_superuser %}
+                            <a href="{% url 'delete_post_url' post.id %}" class="btn btn-info"> Delete </a>
+                            <a href="{% url 'edit_post_url' post.id %}" class="btn btn-success"> Edit </a>
+                        {% endif %}
+                        <a href="{% url 'read_more_url' post.id %}" class="btn btn-danger"> Read More </a>
                     </div>
                 </div>
             {% endfor %}
