@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title> Sign in | Login </title>
 </head>
-<body>
+<body style="background-color: #eff8ff">
     <form method="POST">
         {% csrf_token %}
         {{ form }}
+        <span>if you dont have account<a href="{% url 'sign_up_urls' %}"> click here</a></span>
         <input type="submit" value="Send ">
     </form>
 </body>

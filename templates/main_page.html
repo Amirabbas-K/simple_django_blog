@@ -3,58 +3,63 @@
 <head>
 {% load static %}
     <meta charset="UTF-8">
-    <title> Welcome to my blog </title>
-    <link rel="stylesheet" href="{% static '/bootstarp/css/bootstrap.min.css' %}">
+    <title> Special Blog </title>
+    <!-- <link rel="stylesheet" href="{% static '/bootstarp/css/bootstrap.min.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static '/main.css' %}"> -->
+    <link rel="stylesheet" href="/static/bootstarp/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstarp/main.css">
+    
     <script src="{% static 'bootstarp/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <b><a class="navbar-brand header_top" href="#">MyBlog</a></b>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto ul-navbar">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">About</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Support</a>
+      </li>
+      <li class="nav-item active dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+            News
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">New Post</a>
+          <a class="dropdown-item" href="#">Daily news</a>
+          <a class="dropdown-item" href="#">Tutorial</a>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
       {% if user.is_authenticated %}
-          <p> Welcome {{ user.username }}</p>
+          <p>{{ user.username }}</p>
       {% else %}
-          <a class="btn btn-outline-success my-2 my-sm-0" href="#"> Login | Sign up </a>
+          <a class="btn btn-dark my-2 my-sm-0" href="{% url 'login' %}"> Login | Sign up </a>
       {% endif %}
   </div>
 </nav><br>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
+        <div class="col-4">
             {% for post in posts %}
                 <div class="card">
                     <img class="card-img-top" src="../{{ post.thumbnail }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="card-text">{{ post.body }}</p>
-                    <a href="{% url 'read_more_url' post.id %}" class="btn btn-primary"> Read More </a>
+                        <p class="card-text card_text">{{ post.body }}</p>
+                    <a href="{% url 'read_more_url' post.id %}" class="btn btn-danger"> Read More </a>
+                    <a href="{% url 'delete_post_url' post.id %}" class="btn btn-info"> Delete </a>
+                    <a href="{% url 'edit_post_url' post.id %}" class="btn btn-success"> Edit </a>
                     </div>
                 </div>
             {% endfor %}
