@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .forms import Post_frm
 from .models import Posts
 # Create your views here.
@@ -21,7 +21,9 @@ def edit_post (request , id):
         model = Posts.objects.filter(id=id).update(tag=tag, body=body, author=author , title=title)
     return render (request , "./post/edit.html" , data)
 def delete_post (request , id):
-    get_db = Posts.objects.get(id = id).delete()
+    if request.method == "POST":
+        get_db = Posts.objects.get(id = id).delete()
+        return redirect ("main_page_url")
     data = {}
     return render(request , "./post/delete.html" )
 def main_page (request):

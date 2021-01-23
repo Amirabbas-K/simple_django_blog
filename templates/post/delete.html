@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title> Delete </title>
+    <link rel="stylesheet" href="{% static 'bootstarp/css/bootstrap.min.css' %}">
 </head>
 <body>
-<h1>The post was deleted </h1>
+<!-- <h1>The post was deleted </h1> -->
+{% if user.is_superuser %}
+    <form method="POST">
+        {% csrf_token %}
+        <input class="btn btn-danger" type="submit" value="Delete Post">
+        
+    </form>
+{% else %}
+    <h1> Acces denied we will call to security part next time </h1>
+{% endif %}
 </body>
 </html>
