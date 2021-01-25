@@ -6,3 +6,7 @@ class post_serializer(serializers.ModelSerializer):
         model = Posts
      #     fields = "__all__"
         fields = ['title' , 'body' , 'author' , 'tag' ]
+class Collect_post(serializers.ModelSerializer):
+    class Meta :
+        model = Posts
+        fields = "__all__"
