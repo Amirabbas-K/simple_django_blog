@@ -32,5 +32,8 @@ def main_page (request):
     return render(request , "main_page.html" , data)
 def read_more (request , id):
     the_post = Posts.objects.get(id=id)
+    # view counter
+    the_post.view_count=the_post.view_count+1
+    the_post.save()
     data = {'post': the_post}
     return render(request, './post/read_more.html', data)

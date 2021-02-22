@@ -9,3 +9,4 @@ class Posts (models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tag = models.CharField(max_length=12)
+    view_count = models.IntegerField(default=0)
